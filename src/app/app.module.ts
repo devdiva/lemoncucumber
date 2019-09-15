@@ -1,15 +1,9 @@
 import { NgModule, NO_ERRORS_SCHEMA } from "@angular/core";
 import { NativeScriptModule } from "nativescript-angular/nativescript.module";
 
-import { AppRoutingModule } from "./app-routing.module";
+import { AppRoutingModule, COMPONENTS } from "./app-routing.module";
 import { AppComponent } from "./app.component";
-import { HomeComponent } from './home/home.component';
-import { IntroComponent } from './intro/intro.component';
-import { JournalComponent } from './journal/journal.component';
-import { CommunityComponent } from './community/community.component';
-import { MenuComponent } from './menu/menu.component';
-// import { ItemsComponent } from "./item/items.component";
-// import { ItemDetailComponent } from "./item/item-detail.component";
+import { SettingsComponent } from './settings/settings.component';
 
 // Uncomment and add to NgModule imports if you need to use two-way binding
 // import { NativeScriptFormsModule } from "nativescript-angular/forms";
@@ -27,13 +21,8 @@ import { MenuComponent } from './menu/menu.component';
     ],
     declarations: [
         AppComponent,
-        HomeComponent,
-        IntroComponent,
-        JournalComponent,
-        CommunityComponent,
-        MenuComponent,
-        // ItemsComponent,
-        // ItemDetailComponent
+        ...COMPONENTS,
+        SettingsComponent
     ],
     providers: [],
     schemas: [
