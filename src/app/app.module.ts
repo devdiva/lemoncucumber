@@ -3,6 +3,11 @@ import { NativeScriptModule } from "nativescript-angular/nativescript.module";
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
+import { HomeComponent } from './home/home.component';
+import { IntroComponent } from './intro/intro.component';
+import { JournalComponent } from './journal/journal.component';
+import { CommunityComponent } from './community/community.component';
+import { MenuComponent } from './menu/menu.component';
 // import { ItemsComponent } from "./item/items.component";
 // import { ItemDetailComponent } from "./item/item-detail.component";
 
@@ -22,6 +27,11 @@ import { AppComponent } from "./app.component";
     ],
     declarations: [
         AppComponent,
+        HomeComponent,
+        IntroComponent,
+        JournalComponent,
+        CommunityComponent,
+        MenuComponent,
         // ItemsComponent,
         // ItemDetailComponent
     ],
