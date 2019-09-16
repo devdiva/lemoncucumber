@@ -1,0 +1,31 @@
+/* Add mobile styles for the component here.  */
+StackLayout {
+    /* background: red; */
+    padding: 20px;
+}
+
+.dateToday {
+    font-size: 10px;
+    font-weight: bold;
+    background: #adb0b1;
+    color: #ffffff;
+    padding: 6px;
+}
+
+.date {
+    font-size: 10px;
+    font-weight: bold;
+    background: #e2e5e6;
+    color: #adb0b1;
+    padding: 6px;
+}
+
+.tip {
+    font-size: 10px;
+    color: #adb0b1;
+    padding: 6px;
+}
+
+.journalEntry {
+    border-bottom: 1px solid #adb0b1;
+}

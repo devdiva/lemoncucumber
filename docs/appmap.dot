@@ -1,0 +1,137 @@
+digraph G {
+    /* global style attributes */
+    node [fontname="Arial"];
+    edge  [fontname="Arial"];
+    graph [fontname="Arial"];
+
+    labelloc = t;
+    labeljust = "l";
+    labelfontname = "Arial";
+
+    /* app map heding */
+    label = <<font color="black"><b>App Map &amp; Flow: </b></font> <font color="gold"><b>lemon</b></font><font color="yellowgreen"><b> cucumber</b></font><br /><br />>;
+
+    /* app map entities */
+    app [shape=Msquare];
+    auth [shape=diamond, label="auth?"];
+    mode [shape=diamond, label="mode?"];
+    init [shape=ellipse];
+    set_mode [shape=ellipse, label="set mode"];
+
+    intro [shape=box];
+    home [shape=box];
+    journal [shape=box];
+    almanac [shape=box];
+    settings [shape=box];
+    
+    categories [shape=trapezium];
+
+    food [shape=box];
+    plants [shape=box];
+    goods [shape=box];
+    sweat [shape=box];
+    gardens [shape=box];
+
+    give_or_get [shape=ellipse];
+    match_results [shape=diamond, label="matches?"];
+    match_detail [shape=box];
+    match_alternate [shape=box];
+
+    community [shape=box];
+    resources [shape=trapezium];
+    local_resources [shape=box, label="in my area"];
+    other_resources [shape=box, label="other"];
+
+    /* ranking*/
+    {rank=same home journal community settings }
+
+    /* map: launch and auth */
+    app -> auth;
+
+    subgraph cluster_0 {
+        color=grey;
+        
+        labelloc = t;
+        labeljust = "r";
+        label = <<font color="grey"><i>auth</i></font>>;
+         
+        auth -> init [label="N"];
+        init -> set_mode -> intro;
+        auth -> mode [label="Y"];
+        mode -> set_mode [label="N"];
+    }
+    mode -> home [label="Y"];
+    intro -> home [style=dotted];
+
+    /* map: primary nav */
+    subgraph cluster_1 {
+        home -> journal [dir="both"];
+        journal -> community [dir="both"];
+        community -> settings [dir="both"];
+    }
+   
+    /* map: main categories */
+    subgraph cluster_2 {
+        color=grey;
+        labelloc = b;
+        labeljust = "c";
+        label = <<font color="grey"><i>main</i></font>>;
+
+        /*home -> give_or_get;*/
+        home -> categories;
+        categories -> food;
+        categories -> plants;
+        categories -> goods;
+        categories -> sweat;
+        categories -> gardens;
+
+        food -> give_or_get [dir="both"];
+        plants -> give_or_get [dir="both"];
+        goods -> give_or_get [dir="both"];
+        sweat -> give_or_get [dir="both"];
+        gardens -> give_or_get [dir="both"];
+
+        give_or_get -> match_results;
+        match_results -> match_detail [label="Y"];
+        match_results -> match_alternate [label="N"];
+    }
+
+    /* map: journal */
+    subgraph cluster_3 {
+        color=grey;
+        labelloc = b;
+        labeljust = "c";
+        label = <<font color="grey"><i>journal</i></font>>;
+
+        journal -> almanac;
+        journal -> log_entry;
+        journal -> give_or_get [style=dotted];
+    }
+    
+    /* map: community */
+    subgraph cluster_4 {
+        color=grey;
+        labelloc = b;
+        labeljust = "c";
+        label = <<font color="grey"><i>community</i></font>>;
+
+        community -> resources;
+        resources -> local_resources;
+        resources -> other_resources;
+    }
+
+    /* map: settings */
+     subgraph cluster_5 {
+        color=grey;
+        labelloc = b;
+        labeljust = "c";
+        label = <<font color="grey"><i>settings</i></font>>;
+
+        settings -> preferences;
+        settings -> logout;
+
+        preferences -> user_mode;
+        preferences -> user_location;
+        
+    }
+}

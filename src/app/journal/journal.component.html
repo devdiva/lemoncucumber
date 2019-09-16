@@ -1,0 +1,40 @@
+<StackLayout orientation="vertical">
+    <Label text="My Garden Log" class="h2"  textWrap="true"></Label>
+    
+    <GridLayout columns="50, auto, auto" rows="25, auto" class="journalEntry">
+        <Label text="Sept 16" class="dateToday" row="0" col="0"></Label>
+        <Label text="Get ready for rain." class="tip" row="0" col="1"></Label>
+        <!-- <Button text="GIVE" tap="goAway" row="2" col="0"></Button>
+        <Button text="GET" row="2" col="2"></Button> -->
+        <TextView [(ngModel)]="tvtext" hint="Enter your garden notes today..." [editable]="true"
+        class="input input-border" colspan="2" col="1" row="1"></TextView>
+    </GridLayout>
+
+    <GridLayout columns="50, auto, auto" rows="25, auto" class="journalEntry">
+        <Label text="Sept 15" class="date" row="0" col="0"></Label>
+        <Label text="1cm rain observed." class="tip" row="0" col="1"></Label>
+        <!-- <Button text="GIVE" tap="goAway" row="2" col="0"></Button>
+        <Button text="GET" row="2" col="2"></Button> -->
+        <TextView [(ngModel)]="tvtext" hint="" text="Harvested the last of the zucchini." [editable]="true"
+        class="input input-border" colspan="2" col="1" row="1"></TextView>
+    </GridLayout>
+
+    <GridLayout columns="50, auto, auto" rows="25, auto" class="journalEntry">
+        <Label text="Sept 14" class="date" row="0" col="0"></Label>
+        <Label text="1cm rain observed." class="tip" row="0" col="1"></Label>
+        <!-- <Button text="GIVE" tap="goAway" row="2" col="0"></Button>
+        <Button text="GET" row="2" col="2"></Button> -->
+        <TextView [(ngModel)]="tvtext" hint="" text="Harvested the last of the zucchini." [editable]="true"
+        class="input input-border" colspan="2" col="1" row="1"></TextView>
+    </GridLayout>
+
+    <GridLayout columns="50, auto, auto" rows="25, auto" class="journalEntry">
+        <Label text="Sept 13" class="date" row="0" col="0"></Label>
+        <Label text="1cm rain observed." class="tip" row="0" col="1"></Label>
+        <!-- <Button text="GIVE" tap="goAway" row="2" col="0"></Button>
+        <Button text="GET" row="2" col="2"></Button> -->
+        <TextView [(ngModel)]="tvtext" hint="" text="Harvested the last of the zucchini." [editable]="true"
+        class="input input-border" colspan="2" col="1" row="1"></TextView>
+    </GridLayout>
+    
+</StackLayout>
